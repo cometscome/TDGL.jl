@@ -42,11 +42,11 @@ module TDGL
                 U[:,2:Nx+1,2:Ny+1] = U[:,2:Nx+1,2:Ny+1].*exp.(-im*δt.*dUdt[:,:,:]) #-δt*dUdt 
             end
               
-            heatmap(1:Nx, 1:Ny, abs.(Δ),aspect_ratio=:equal) ;
+            p = heatmap(1:Nx, 1:Ny, abs.(Δ),aspect_ratio=:equal);
 
             if i % 40 ==1
                 count += 1                
-                savefig("./"*name*"/amp_"*string(count))     
+                savefig(p,"./"*name*"/amp_"*string(count))     
                 println(i,"\t",Δ[div(Nx,2),div(Ny,2)],"\t",abs(Δ[div(Nx,2),div(Ny,2)]),"\t",dΔdt[div(Nx,2),div(Ny,2)])             
             end
                    
