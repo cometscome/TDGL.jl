@@ -32,7 +32,7 @@ module TDGL
         end
         println("TDGL simulation starts!")
         println("Num | ","\t"," Δ at the center | ","\t","|Δ| at the center | ","\t","dΔdt")
-        maps = @animate  for i=1:param.Maxstep            
+        maps = @animate for i=1:param.Maxstep            
             calc_dΔdt!(dΔdt,U,Δ,param,T)   
             if param.calc_A                  
                 calc_dUdt!(dUdt,U,Δ,param,T)
