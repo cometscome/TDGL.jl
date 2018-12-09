@@ -31,7 +31,7 @@ module TDGL
             U[:,2:Nx+1,2:Ny+1] .= 1
         end
         println("TDGL simulation starts!")
-        println("Num | ","\t","| Δ at the center | ","\t","|Δ| at the center | ","\t","dΔdt")
+        println("Num | ","\t"," Δ at the center | ","\t","|Δ| at the center | ","\t","dΔdt")
         maps = @animate  for i=1:param.Maxstep            
             calc_dΔdt!(dΔdt,U,Δ,param,T)   
             if param.calc_A                  
@@ -42,7 +42,7 @@ module TDGL
                 U[:,2:Nx+1,2:Ny+1] = U[:,2:Nx+1,2:Ny+1].*exp.(-im*δt.*dUdt[:,:,:]) #-δt*dUdt 
             end
               
-            heatmap(1:Nx, 1:Ny, abs.(Δ),aspect_ratio=:equal,show=false) 
+            heatmap(1:Nx, 1:Ny, abs.(Δ),aspect_ratio=:equal) ;
 
             if i % 40 ==1
                 count += 1                
