@@ -51,7 +51,8 @@ module TDGL
             end
                    
         end every 40 
-        gif(maps, "./"*name*"/GL.gif", fps = 15)         
+        gif(maps, "./"*name*"/GL.gif", fps = 15)  
+        return Δ,U       
     end
 
     function init_U(param)
@@ -205,6 +206,6 @@ module TDGL
 #        Δ0[5,5] += im
         T = 0.2
         U = init_U(param)
-        tdGLsimulation(Δ0,param,T,U)
+        Δ,U = tdGLsimulation(Δ0,param,T,U)
     end
 end # module
