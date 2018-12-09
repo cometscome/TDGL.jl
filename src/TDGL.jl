@@ -42,7 +42,7 @@ module TDGL
                 U[:,2:Nx+1,2:Ny+1] = U[:,2:Nx+1,2:Ny+1].*exp.(-im*δt.*dUdt[:,:,:]) #-δt*dUdt 
             end
               
-            heatmap(1:Nx, 1:Ny, abs.(Δ),aspect_ratio=:equal) 
+            heatmap(1:Nx, 1:Ny, abs.(Δ),aspect_ratio=:equal,show=false) 
 
             if i % 40 ==1
                 count += 1                
